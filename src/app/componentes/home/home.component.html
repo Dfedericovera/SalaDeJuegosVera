@@ -10,11 +10,13 @@
     </div>
 </div>
 
+                                      <a class="nav-link" routerLink="/Ahorcado">Home<span class="sr-only">(current)</span></a>
+
 
 <div class="container-fluid min-vh-50 d-flex flex-column justify-content-center align-items-center p-0" style="background: #3b3b3ba8;">
     <div class="row justify-content-center w-100 mt-5">
         <div class="col-md-3 mb-4" *ngFor="let juego of [
-            {nombre: 'Ahorcado', img: '/images/ahorcado.gif', link: '/ahorcado'},
+            {nombre: 'Ahorcado', img: '/images/ahorcado.gif', link: '../Ahorcado'},
             {nombre: 'Mayor o menor', img: '/images/mayormenor.gif', link: '/mayormenor'},
             {nombre: 'Preguntados', img: '/images/preguntados.gif', link: '/preguntados'},
             {nombre: 'Cara o seca', img: '/images/caraoseca.jpg', link: '/caraoseca'}

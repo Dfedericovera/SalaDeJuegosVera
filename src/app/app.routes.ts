@@ -9,53 +9,14 @@ import { CaraOSecaComponent } from './componentes/cara-oseca/cara-oseca.componen
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: "full" },
-    { path: 'Home', component: HomeComponent },
     { path: 'QuienSoy', component: QuienSoyComponent },
-    { path: 'Login', component: LoginComponent },  
-    
+    { path: 'Login', component: LoginComponent },      
     { 
         path: 'Home', 
-        component: LoginComponent,
-        children:[
-            {
-                path: "ahorcado",
-                component: AhorcadoComponent
-            },
-            {
-                path: "mayorOMenor",
-                component: MayorOMenorComponent
-            },
-                        {
-                path: "preguntados",
-                component: PreguntadosComponent
-            },
-                        {
-                path: "caraOSeca",
-                component: CaraOSecaComponent
-            }
-        ]
-
-    },    
-    
-
-    //Algo asi debe ser para los juegos (falta lazyload)
-    //{
-    //     path: 'products', component: ProductsComponent,
-    //     children:
-    //         [
-    //             {
-    //                 path: "detalle/:productId",
-    //                 component: ProductDetailComponent
-    //             }
-    //         ]
-    // },
-
-    // {
-    //     path: 'about',
-    //     loadChildren: () => import('./modules/general/about/about.module')
-    //       .then(mod => mod.AboutModule)
-    //   },
-
-    // { path: '**', component: PageNotFoundComponent },    
+        loadChildren: () => import('./componentes/home/home.module').then(mod => mod.HomeModule)
+    },  
+    { path: 'Ahorcado', component: AhorcadoComponent },      
     { path: '**', component: HomeComponent },
+
+
 ];
