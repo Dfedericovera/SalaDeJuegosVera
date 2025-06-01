@@ -46,7 +46,9 @@ export class AhorcadoComponent {
 
   seleccionarLetra(letra: string, boton: any)
   {
-    boton.path[0].disabled = true;
+    console.log(boton);
+    
+    boton.target.disabled = true;
     var encontrado = this.palabra.indexOf(letra);
     if (encontrado != -1)
     {
