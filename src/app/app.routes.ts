@@ -8,7 +8,7 @@ import { PreguntadosComponent } from './componentes/preguntados/preguntados.comp
 import { CaraOSecaComponent } from './componentes/cara-oseca/cara-oseca.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: '/home', pathMatch: "full" },
+    { path: '', redirectTo: '/Home', pathMatch: "full" },
     { path: 'QuienSoy', component: QuienSoyComponent },
     { path: 'Login', component: LoginComponent },      
     { 
@@ -17,6 +17,7 @@ export const routes: Routes = [
     },  
     { path: 'Ahorcado', component: AhorcadoComponent },      
     { path: 'MayorOMenor', component: MayorOMenorComponent },      
+    { path: 'Preguntados', component: PreguntadosComponent },      
     { path: '**', component: HomeComponent },
 
 
