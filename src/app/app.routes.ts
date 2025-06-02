@@ -12,10 +12,11 @@ export const routes: Routes = [
     { path: 'QuienSoy', component: QuienSoyComponent },
     { path: 'Login', component: LoginComponent },      
     { 
-        path: 'Home', 
+        path: 'home', 
         loadChildren: () => import('./componentes/home/home.module').then(mod => mod.HomeModule)
     },  
     { path: 'Ahorcado', component: AhorcadoComponent },      
+    { path: 'MayorOMenor', component: MayorOMenorComponent },      
     { path: '**', component: HomeComponent },
 
 
