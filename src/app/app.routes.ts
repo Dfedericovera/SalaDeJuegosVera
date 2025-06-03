@@ -18,6 +18,7 @@ export const routes: Routes = [
     { path: 'Ahorcado', component: AhorcadoComponent },      
     { path: 'MayorOMenor', component: MayorOMenorComponent },      
     { path: 'Preguntados', component: PreguntadosComponent },      
+    { path: 'Caraoseca', component: CaraOSecaComponent },      
     { path: '**', component: HomeComponent },
 
 
