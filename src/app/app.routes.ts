@@ -6,10 +6,12 @@ import { AhorcadoComponent } from './componentes/ahorcado/ahorcado.component';
 import { MayorOMenorComponent } from './componentes/mayor-omenor/mayor-omenor.component';
 import { PreguntadosComponent } from './componentes/preguntados/preguntados.component';
 import { CaraOSecaComponent } from './componentes/cara-oseca/cara-oseca.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/Home', pathMatch: "full" },
     { path: 'QuienSoy', component: QuienSoyComponent },
+    { path: 'Registro', component: RegistroComponent },
     { path: 'Login', component: LoginComponent },      
     { 
         path: 'home', 
