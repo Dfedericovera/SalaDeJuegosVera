@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth-service.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FileI } from '../../interface/file';
 import { AlertComponent } from "../alert/alert.component";
 import { CommonModule } from '@angular/common';
@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-registro',
   standalone: true,
-  imports: [CommonModule,AlertComponent,ReactiveFormsModule ],
+  imports: [CommonModule,AlertComponent,ReactiveFormsModule ,RouterLink],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.css'
 })
@@ -44,6 +44,30 @@ export class RegistroComponent {
   }
 
   onSubmit() {
+
+    console.log('Registro', this.userForm.value);
+    this.authService.register(
+      this.userForm.controls['email'].value,
+      this.userForm.controls['password'].value
+    ).then(user => {
+      console.log('Usuario registrado', user);
+      this.colorAlert = "alert-success";
+      this.mensaje = "Registrado correctamente";
+      this.submitted = true;
+      setTimeout(() => {
+        this.authService.login(
+          this.userForm.controls['email'].value,
+          this.userForm.controls['password'].value
+        ).then(() => {
+          this.router.navigate(["/Home"]);
+        });
+      }, 2000);
+    }).catch(error => {
+      console.error('Error al registrar usuario', error);
+      this.colorAlert = "alert-danger";
+      this.mensaje = error.message; // "Hubo un problema al registrarse"
+      this.submitted = true;
+    });
     // try {
     //   this.authService.register(this.userForm.controls.email.value, this.userForm.controls.password.value).then(user => {
     //     if (user) {
@@ -72,7 +96,7 @@ export class RegistroComponent {
   }
 
   navigate() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/Login']);
   }
 
 
