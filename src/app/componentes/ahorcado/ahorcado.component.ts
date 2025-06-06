@@ -23,6 +23,18 @@ export class AhorcadoComponent {
   gameOver = false;
   won = 0;
   lost = 0;
+  imagenAhorcado = "/images/ahorcado.jpg";
+
+  images = [
+    "/images/ahorcado.jpg",
+    "/images/ahorcado1.jpg",
+    "/images/ahorcado2.jpg",
+    "/images/ahorcado3.jpg",
+    "/images/ahorcado4.jpg",
+    "/images/ahorcado5.jpg",
+    "/images/ahorcado6.jpg",
+  ];
+
   constructor(
     private juegoService:JuegosService,
     ) { }
@@ -77,6 +89,7 @@ export class AhorcadoComponent {
     } else
     {
       this.fallos++;
+      this.imagenAhorcado = this.images[this.fallos];
       this.salida.innerHTML = "Con " + (6 - this.fallos) + " fallos serás ahorcado";
       if (this.fallos >= 6)
       {
@@ -106,6 +119,7 @@ export class AhorcadoComponent {
     this.arrayp = this.palabra.split("");
     this.solucion = [];
     this.fallos = 0;
+    this.imagenAhorcado = this.images[this.fallos];
     var teclado: HTMLDivElement = document.getElementById('teclado') as HTMLDivElement;
     for (var i = 0; i < this.arrayp.length; i++)
     {
