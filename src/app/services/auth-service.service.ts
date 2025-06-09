@@ -26,8 +26,25 @@ export class AuthService {
       throw new Error(error.message);
     }
     this.setUserEmail();
-
+    this.registrarLogUsuario(email);
     return data;
+  }
+
+  private registrarLogUsuario(email: string) {
+    // Grabar el registro del usuario en la base de datos de supabase llamada LogUsuarios
+
+    var res = this.supabase
+      .from('LogUsuario')
+      .insert([
+        { usuario: email, fechaDeIngreso: new Date().toISOString() },
+      ])
+      .select().then((response) => {
+        if (response.error) {
+          console.error('Error al registrar el usuario:', response.error);
+        } else {
+          console.log('Usuario registrado correctamente:', response.data);
+        }
+      });
   }
 
   private setUserEmail() {
