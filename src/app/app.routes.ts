@@ -10,6 +10,7 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { AuthGuard } from './guards/auth.guard';
 import { SalaDeChatComponent } from './componentes/sala-de-chat/sala-de-chat.component';
 import { ListadoResultadosComponent } from './componentes/listado-resultados/listado-resultados.component';
+import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
 
 export const routes: Routes = [
     { path: '', 
@@ -30,6 +31,7 @@ export const routes: Routes = [
     { path: 'Caraoseca', component: CaraOSecaComponent },      
     { path: 'ListadoResultados', component: ListadoResultadosComponent },      
     { path: 'Chat', component: SalaDeChatComponent, canActivate: [AuthGuard] }, 
+    { path: 'Encuesta', component: EncuestaComponent, canActivate: [AuthGuard] }, 
     { path: '**', redirectTo: 'Home', pathMatch: 'full' } 
 
 ];
