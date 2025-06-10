@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { JuegosService } from '../../services/juegos.service';
 import { CommonModule } from '@angular/common';
+import { JuegoAhorcado } from '../../clases/juego-ahorcado';
+import { AuthService } from '../../services/auth-service.service';
 
 @Component({
   selector: 'app-ahorcado',
@@ -37,6 +39,7 @@ export class AhorcadoComponent {
 
   constructor(
     private juegoService:JuegosService,
+    public auth: AuthService
     ) { }
 
   ngOnInit(): void
@@ -104,11 +107,11 @@ export class AhorcadoComponent {
   }
 
   guardarJuego(gano:boolean){
-    // var juego = new JuegoAhorcado(this.jugadoresService.jugador);
-    // juego.gano = gano;
-    // this.juegoService.addJuego(juego).then(()=>{
-    //   console.log("Guardado---")
-    // });
+    var juego = new JuegoAhorcado(this.auth.usuario);
+    juego.resultado = gano ? "Gano" : "Perdio";
+    this.juegoService.addJuego(juego).then(()=>{
+      console.log("Guardado---")
+    });
   }
 
   reiniciar()

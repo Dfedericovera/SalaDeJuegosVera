@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth-service.service';
 import { JuegosService } from '../../services/juegos.service';
 import { CommonModule } from '@angular/common';
+import { Juego } from '../../clases/juego';
 // import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
@@ -58,7 +59,7 @@ export class CaraOSecaComponent {
   isSpining = false; //si esta girando no muestro la moneda
   monedaActual: any; //moneda que se muestra
   constructor(
-    private jugadoresService: AuthService,
+    private authService: AuthService,
     private juegoService: JuegosService
   ) {
     // this.caraoceca = new JuegoCaraoceca(this.jugadoresService.jugador);
@@ -99,9 +100,7 @@ export class CaraOSecaComponent {
       setTimeout(() => {
         this.isPlaying = false;
       }, 2000);
-      // this.juegoService.addJuego(this.caraoceca).then(()=>{
-      //   this.caraoceca = new JuegoCaraoceca(this.jugadoresService.jugador);
-      // });
+      this.guardarJuego(true);
 
     } else {
       this.mostrarMonedaActual();
@@ -138,6 +137,16 @@ export class CaraOSecaComponent {
     }
     this.selecciono = true;
     this.caraoceca.monedaSeleccionada = this.caraoceca.monedas[indexMoneda];
+  }
+
+  guardarJuego(gano: boolean) {
+    var juego = new Juego(this.authService.usuario);
+    juego.resultado = "Gano con una probabilidad del " + (this.suerte).toString()+ "%";
+    juego.nombreJuego = "Cara o Seca";
+    juego.fecha = new Date().toLocaleDateString();
+    this.juegoService.addJuego(juego).then(() => {
+      console.log("Guardado---")
+    });
   }
 
 }

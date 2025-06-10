@@ -3,6 +3,7 @@ import { JuegosService } from '../../services/juegos.service';
 import { AuthService } from '../../services/auth-service.service';
 import { ApiService } from '../../services/api.service';
 import { CommonModule } from '@angular/common';
+import { JuegoPreguntados } from '../../clases/juego-preguntados';
 
 @Component({
   selector: 'app-preguntados',
@@ -22,7 +23,7 @@ export class PreguntadosComponent {
   constructor(
     private apiService: ApiService,
     private juegoService: JuegosService,
-    private jugadoresService: AuthService
+    private authService: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -104,13 +105,14 @@ export class PreguntadosComponent {
   }
 
   guardarJuego(aciertos: number) {
-    // var juego = new JuegoPreguntados(this.jugadoresService.jugador);
-    // juego.aciertos = aciertos.toString();
-    // juego.gano = true;
-    // this.juegoService.addJuego(juego).then(() =>
-    // {
-    //   console.log("Guardado---")
-    // });
+    var juego = new JuegoPreguntados(this.authService.usuario);
+    juego.aciertos = aciertos.toString();
+    juego.resultado = "Aciertos: " + aciertos.toString();
+    juego.fecha = new Date().toLocaleDateString();
+    this.juegoService.addJuego(juego).then(() =>
+    {
+      console.log("Guardado---")
+    });
   }
 
 

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { JuegosService } from '../../services/juegos.service';
 import { AuthService } from '../../services/auth-service.service';
 import { CommonModule } from '@angular/common';
+import { JuegoMayorOMenor } from '../../clases/juego-mayor-o-menor';
 
 @Component({
   selector: 'app-mayor-omenor',
@@ -32,7 +33,7 @@ export class MayorOMenorComponent {
 
 
   constructor(private juegoService: JuegosService,
-    private jugadoresService: AuthService) { }
+    private authService: AuthService) { }
 
   ngOnInit(): void
   {
@@ -57,7 +58,7 @@ export class MayorOMenorComponent {
     {
       //perdio
       this.gameOver = true;
-      // this.guardarJuego(this.aciertos);
+      this.guardarJuego(this.aciertos);
     }
     this.indice = nuevoIndice;
     this.cartaActual = this.mazo[this.indice];
@@ -69,15 +70,16 @@ export class MayorOMenorComponent {
 
   }
 
-  // guardarJuego(aciertos: number)
-  // {
-  //   var juego = new JuegoMayorOMenor(this.jugadoresService.jugador);
-  //   juego.aciertos = aciertos.toString();
-  //   juego.gano = true;
-  //   this.juegoService.addJuego(juego).then(() =>
-  //   {
-  //     console.log("Guardado---")
-  //   });
-  // }
+  guardarJuego(aciertos: number)
+  {
+    var juego = new JuegoMayorOMenor(this.authService.usuario);
+    juego.aciertos = aciertos.toString();
+    juego.resultado = "Aciertos: " + aciertos.toString();
+    juego.fecha = new Date().toLocaleDateString();
+    this.juegoService.addJuego(juego).then(() =>
+    {
+      console.log("Guardado---")
+    });
+  }
 
 }
