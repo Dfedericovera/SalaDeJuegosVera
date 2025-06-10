@@ -5,6 +5,20 @@ import { AuthService } from './auth-service.service';
   providedIn: 'root'
 })
 export class EncuestaService {
+  getEncuestas() {
+    return this.auth.supabase
+      .from('encuesta')
+      .select('*')
+      .then((response) => {
+        if (response.error) {
+          console.error('Error al obtener encuestas:', response.error);
+          return Promise.reject(response.error);
+        } else {
+          console.log('Encuestas obtenidas correctamente:', response.data);
+          return Promise.resolve(response.data);
+        }
+      });
+  }
 
   constructor(private auth: AuthService) { }
 

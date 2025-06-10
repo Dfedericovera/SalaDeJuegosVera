@@ -1,24 +1,29 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { EncuestaService } from '../../services/encuesta.service';
 
 @Component({
   selector: 'app-listado-encuesta',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './listado-encuesta.component.html',
   styleUrl: './listado-encuesta.component.css'
 })
 export class ListadoEncuestaComponent {
-
-  // Aquí puedes agregar la lógica necesaria para manejar el listado de encuestas
-  // Por ejemplo, podrías inyectar un servicio que obtenga las encuestas desde una API o base de datos
-  // y luego mostrarlas en la plantilla HTML.
+listado: any;
   
-  constructor() {
-    // Inicialización del componente
+  constructor(private encuestaService: EncuestaService) {
+    this.listado = [];
   }
 
   ngOnInit(): void {
-    // Lógica que se ejecuta al inicializar el componente
+    this.obtenerListado();
+  }
+
+  obtenerListado(): void {
+    this.encuestaService.getEncuestas().then((data) => {
+      this.listado = data;
+    });
   }
 
 }

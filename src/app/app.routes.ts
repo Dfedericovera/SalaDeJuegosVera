@@ -11,6 +11,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { SalaDeChatComponent } from './componentes/sala-de-chat/sala-de-chat.component';
 import { ListadoResultadosComponent } from './componentes/listado-resultados/listado-resultados.component';
 import { EncuestaComponent } from './componentes/encuesta/encuesta.component';
+import { ListadoEncuestaComponent } from './componentes/listado-encuesta/listado-encuesta.component';
+import { AdminGuard } from './guards/admin.guard';
 
 export const routes: Routes = [
     { path: '', 
@@ -32,6 +34,8 @@ export const routes: Routes = [
     { path: 'ListadoResultados', component: ListadoResultadosComponent },      
     { path: 'Chat', component: SalaDeChatComponent, canActivate: [AuthGuard] }, 
     { path: 'Encuesta', component: EncuestaComponent, canActivate: [AuthGuard] }, 
+    { path: 'ListadoEncuestas', component: ListadoEncuestaComponent, canActivate: [AdminGuard] }, 
+    
     { path: '**', redirectTo: 'Home', pathMatch: 'full' } 
 
 ];
