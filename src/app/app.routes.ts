@@ -8,6 +8,7 @@ import { PreguntadosComponent } from './componentes/preguntados/preguntados.comp
 import { CaraOSecaComponent } from './componentes/cara-oseca/cara-oseca.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
 import { AuthGuard } from './guards/auth.guard';
+import { SalaDeChatComponent } from './componentes/sala-de-chat/sala-de-chat.component';
 
 export const routes: Routes = [
     { path: '', 
@@ -26,7 +27,7 @@ export const routes: Routes = [
     { path: 'MayorOMenor', component: MayorOMenorComponent },      
     { path: 'Preguntados', component: PreguntadosComponent },      
     { path: 'Caraoseca', component: CaraOSecaComponent },      
-    // { path: '**', component: HomeComponent },
-
+    { path: 'Chat', component: SalaDeChatComponent, canActivate: [AuthGuard] }, 
+    { path: '**', redirectTo: 'Home', pathMatch: 'full' } 
 
 ];
