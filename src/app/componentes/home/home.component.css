@@ -1,7 +1,10 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
-
+.jumbotron {
+  background-color: #ffffff9d;
+  
+}
 body {
   padding-top: 3rem;
   padding-bottom: 3rem;
