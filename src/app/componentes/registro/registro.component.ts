@@ -65,7 +65,7 @@ export class RegistroComponent {
     }).catch(error => {
       console.error('Error al registrar usuario', error);
       this.colorAlert = "alert-danger";
-      this.mensaje = error.message; // "Hubo un problema al registrarse"
+      this.mensaje = 'Error al registrar usuario'; // "Hubo un problema al registrarse"
       this.submitted = true;
     });
     // try {

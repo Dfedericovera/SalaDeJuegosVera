@@ -57,7 +57,7 @@ export class LoginComponent {
     }).catch((error) => {
       console.error('Login failed', error);
       this.colorAlert = "alert-danger"
-        this.mensaje = error.message;
+        this.mensaje = 'Error de autenticación'; // error.message;
         this.submitted = true;
         console.log('Usuario no registrado', error)
     });
