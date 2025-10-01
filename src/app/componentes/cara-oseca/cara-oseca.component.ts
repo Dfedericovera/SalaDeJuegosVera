@@ -3,7 +3,7 @@ import { AuthService } from '../../services/auth-service.service';
 import { JuegosService } from '../../services/juegos.service';
 import { CommonModule } from '@angular/common';
 import { Juego } from '../../clases/juego';
-// import { trigger, state, style, animate, transition } from '@angular/animations';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-cara-oseca',
@@ -11,22 +11,22 @@ import { Juego } from '../../clases/juego';
   imports: [CommonModule],
   templateUrl: './cara-oseca.component.html',
   styleUrl: './cara-oseca.component.css',
-  // animations: [
-  //   trigger('cardState', [
-  //     state(
-  //       'spin',
-  //       style({
-  //         transform: 'rotateY(1080deg) rotateZ(0deg)',
-  //       })
-  //     ),
-  //     state(
-  //       'blank',
-  //       style({
-  //       })
-  //     ),
-  //     transition('* => *', animate('1000ms ease')),
-  //   ]),
-  // ],
+  animations: [
+    trigger('cardState', [
+      state(
+        'spin',
+        style({
+          transform: 'rotateY(1080deg) rotateZ(0deg)',
+        })
+      ),
+      state(
+        'blank',
+        style({
+        })
+      ),
+      transition('* => *', animate('1000ms ease')),
+    ]),
+  ],
 })
 export class CaraOSecaComponent {
 
