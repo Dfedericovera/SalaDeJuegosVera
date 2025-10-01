@@ -8,6 +8,12 @@ input, textarea {
     border:0;
     color:black;
 }
+.cajaChat{
+    height:70vh;
+    border:1px solid black;
+    margin-bottom:20px;
+    background-color:#414a59;
+}
 
 input[type='submit'] {
     background-color:#009111;

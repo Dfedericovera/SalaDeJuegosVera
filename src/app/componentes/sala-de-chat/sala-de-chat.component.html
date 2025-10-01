@@ -7,7 +7,7 @@
         </form>
         
     </div> -->
-        <div style="overflow: auto;">
+        <div style="overflow: auto;" class="cajaChat">
             <ul class="list-group" *ngFor="let post of posts">
                 <li class="list-group-item" (click)="getPost(post.id)" [ngClass]="esPostPropio(post.usuario)">
                     <small>{{post.timestamp | date:"dd/MM/yy h:mm a"}}</small>
