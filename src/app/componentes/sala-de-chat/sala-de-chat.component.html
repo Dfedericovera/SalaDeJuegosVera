@@ -1,4 +1,4 @@
-<body >
+<body>
     <div class="container mt-5">
         <!--  <div class="input-group mb-3">
         <form >
@@ -14,15 +14,24 @@
                     <br>
                     <strong>{{ post.usuario}}</strong>
                     <br>
-                    <p style="background-color:rgba(255, 255, 255, 0.39); border-radius: 5px;">
+                    <p style="background-color: #e9e9eb; border-radius: 5px;" class="p-2 rounded">
                         {{post.contenido}}
                     </p>
                 </li>
             </ul>
         </div>
         <form class="mt-5" #f>
-            <input [(ngModel)]="content" name="content" placeholder="Escribe un mensaje..">
-            <input type="submit" value="Enviar" (click)="addPost(f)">
+            <!-- <input [(ngModel)]="content" name="content" class="form-control" placeholder="Escribe un mensaje..">
+            <input type="submit" class="btn" value="Enviar" (click)="addPost(f)"> -->
+
+            <div class="input-group mb-3">
+                <input type="text" [(ngModel)]="content" name="content" class="form-control" placeholder="Escribe un mensaje.."
+                    aria-label="Escribe un mensaje.." aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-danger" type="submit" id="button-addon2" (click)="addPost(f)">Enviar</button>
+                </div>
+            </div>
+
         </form>
 
     </div>

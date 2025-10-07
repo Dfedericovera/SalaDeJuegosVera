@@ -23,7 +23,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary mt-2" (click)='lanzarMoneda(progressbar)'>
+                    <button type="button" class="btn btn-primary mt-2" (click)='lanzarMoneda(progressbar)' [disabled]="isSpining">
                         LANZAR MONEDA</button>
                 </div>
                 <div class="card mb-3 shadow-sm text-white bg-dark" style="min-width: 220px; max-width: 220px; min-height: 320px; max-height: 320px; display: flex; flex-direction: column; justify-content: center;">

@@ -3,16 +3,21 @@ input, textarea {
     width: 100%;
     margin-bottom:15px;
     padding:10px;
-    background:white;
+    /* background:white; */
     border-bottom: 1px solid #414a59 !important;
     border:0;
     color:black;
 }
 .cajaChat{
     height:70vh;
-    border:1px solid black;
+    /* border:1px solid black; */
     margin-bottom:20px;
-    background-color:#414a59;
+    /* background-color:#414a59; */
+}
+.list-group-item {
+    background-color: #adadadbe !important;
+    border:0;
+    margin-bottom:5px;
 }
 
 input[type='submit'] {
@@ -30,21 +35,23 @@ ul {
     margin:0;padding:0;
 }
 ul li {
-    background-color:#6666669f;
+    /* background-color:#fffffff5; */
     padding:20px;
     margin-bottom:2px;
     color: black;
-}
-ul li a {
-    color:#ffcc00;
 }
 h1 {
     margin-top:50px;
 }
 
 .postPropio{
-    background-color: #ffcc00 !important;
+    /* background-color: #ffcc00 !important; */
     text-align: right !important;
+}
+
+.postPropio p{
+    background-color: #007bff !important;
+    /* color: white !important; */
 }
 
 /* .background {

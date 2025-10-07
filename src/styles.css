@@ -6,7 +6,7 @@
     }
 body {
   background-image: url("../public/images/background.jpg"); /* Replace with the path to your image */
-  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-repeat: repeat; /* Prevents the image from repeating */
   background-size: auto; /* Makes the background image fill the full height (y-axis) */
   background-position: center; /* Centers the image */
 }
