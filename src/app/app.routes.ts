@@ -27,10 +27,7 @@ export const routes: Routes = [
         loadChildren: () => import('./componentes/home/home.module').then(mod => mod.HomeModule),
         canActivate: [AuthGuard] 
     },  
-    { path: 'Ahorcado', component: AhorcadoComponent },      
-    { path: 'MayorOMenor', component: MayorOMenorComponent },      
-    { path: 'Preguntados', component: PreguntadosComponent },      
-    { path: 'Caraoseca', component: CaraOSecaComponent },      
+  
     { path: 'ListadoResultados', component: ListadoResultadosComponent },      
     { path: 'Chat', component: SalaDeChatComponent, canActivate: [AuthGuard] }, 
     { path: 'Encuesta', component: EncuestaComponent, canActivate: [AuthGuard] }, 
